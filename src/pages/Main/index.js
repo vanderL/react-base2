@@ -4,7 +4,7 @@ import { Title } from './styles';
 
 function Main() {
     return (
-        <Title error={false}>
+        <Title error={true}>
             Main
             <small> Olá mundo!</small>
         </Title>
