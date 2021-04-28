@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FaGithub, FaPlus, FaSpinner } from 'react-icons/fa';
 
@@ -82,7 +83,7 @@ class Main extends Component {
                     {repositories.map(repo => (
                         <li key={repo.name}>
                             <span> {repo.name} </span>
-                            <a href="#"> Detalhes </a>
+                            <Link to={`/repository/${encodeURIComponent(repo.name)}`}> Detalhes </Link>
                         </li>
                     ))}  
                 </List>
