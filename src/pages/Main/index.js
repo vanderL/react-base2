@@ -4,7 +4,7 @@ import { FaGithub, FaPlus, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api'
 
-import { Container, Form, SubmitButton } from './styles';
+import { Container, Form, SubmitButton, List } from './styles';
 
 class Main extends Component {
     state = {
@@ -39,7 +39,7 @@ class Main extends Component {
 
 
     render() {
-        const { newRepo, loading } = this.state;
+        const { newRepo, loading, repositories } = this.state;
 
         return (
             <Container>
@@ -60,6 +60,15 @@ class Main extends Component {
                         {loading ? <FaSpinner color="#fff" size={14}/> : <FaPlus color="#fff" size={14}/>}
                     </SubmitButton>
                 </Form>
+                
+                <List>
+                    {repositories.map(repo => (
+                        <li key={repo.name}>
+                            <span> {repo.name} </span>
+                            <a href="#"> Detalhes </a>
+                        </li>
+                    ))}  
+                </List>
             </Container>
         )
     }
